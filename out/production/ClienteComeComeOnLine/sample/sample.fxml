@@ -1,0 +1,52 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Text?>
+<GridPane fx:controller="sample.Controller"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+
+
+
+    <Label text="Host:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+    <TextField fx:id="tfHost" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+    <Label text="Porta:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <TextField fx:id="tfPorta" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+    <Label text="Nome:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+    <TextField fx:id="tfNome" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+
+    <Button fx:id="btConecta" text="Conectar" GridPane.columnIndex="0" GridPane.rowIndex="4" onAction="#conecta"/>
+    <Circle fx:id="clStatus" radius="10" fill="red" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+    <Text text="#" fx:id="txtLast" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+
+
+
+    <GridPane GridPane.columnIndex="1" GridPane.rowIndex="6">
+
+        <Button onAction="#mover" text="W" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+        <Button onAction="#mover" text="A" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <Button onAction="#mover" text="S" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+        <Button onAction="#mover" text="D" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+
+
+
+    </GridPane>
+
+
+
+
+
+
+
+
+
+</GridPane>
