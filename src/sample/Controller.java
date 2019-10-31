@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
@@ -71,20 +72,32 @@ public class Controller {
     }
 
     @FXML
+    public void tecla(KeyEvent evt){
+
+        String tecla = evt.getCharacter();
+
+        try{
+            
+            envia(tecla.toUpperCase());
+
+            txtLast.setText(cliente.getUltimaMensagem());
+
+
+        }catch (IOException e){
+            Alert alert = new Alert(Alert.AlertType.ERROR,e.getMessage());
+            alert.showAndWait();
+        }
+
+    }
+
+    @FXML
     public void mover(ActionEvent evt){
         try{
+
             Button bt = (Button) evt.getSource();
 
-            if(bt.getText().equals("W")){
-                cliente.processa("Up");
-            }else if(bt.getText().equals("S")){
-                cliente.processa("Down");
-            }else if(bt.getText().equals("A")){
-                cliente.processa("Left");
-            }else{
-                cliente.processa("Rigth");
-            }
 
+            envia(bt.getText());
 
             txtLast.setText(cliente.getUltimaMensagem());
 
@@ -96,6 +109,18 @@ public class Controller {
 
 
 
+    }
+
+    private void envia(String msg) throws IOException{
+        if(msg.equals("W")){
+            cliente.processa("Up");
+        }else if(msg.equals("S")){
+            cliente.processa("Down");
+        }else if(msg.equals("A")){
+            cliente.processa("Left");
+        }else if(msg.equals("D")){
+            cliente.processa("Rigth");
+        }
     }
 
     private void ajustaComponentes(boolean status){
